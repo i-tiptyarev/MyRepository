@@ -27,8 +27,8 @@ public class PlayList
     public PlayList()
     {
         plmass = new ArrayList<PlayListItem>();
-        plItem = new PlayListItem(Name);
-        plmass.add(plItem);
+        //plItem = new PlayListItem(Name);
+        //plmass.add(plItem);
     }
 }
 

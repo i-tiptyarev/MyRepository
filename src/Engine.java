@@ -69,7 +69,13 @@ public class Engine {
     public void Add()
     {
         try{
+            //pl.Add(Song);
+            System.out.println("Enter Song Name");
+            Scanner in = new Scanner(System.in);
+            Song = in.nextLine();
             pl.Add(Song);
+            System.out.println("Adding Successful");
+            count++;
         }
         catch (Exception ex)
         {
@@ -90,7 +96,7 @@ public class Engine {
 
     public void GetPlayList() {
         PlayListItem currentPlItem;
-        for (int i = 1; i <= count; i++)
+        for (int i = 0; i < count; i++)
         {
             //currentPlItem = new PlayListItem(pl.plmass.get(i).Name);
             //currentPlItem.Name = pl.plmass.get(i).Name;
