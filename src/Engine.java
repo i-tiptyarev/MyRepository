@@ -9,34 +9,43 @@ import java.util.*;
 public class Engine {
     PlayList pl = new PlayList();
     PlayListItem plItem;
-    String NextSong, PreviousSong, CurrentlySong, Song;
+    String Song;
     Clip clip;
     int framePosition = 0;
     int count = 0;
+    int number = 0;
 
-    /*public void Play()
+    public void Play()
     {
         try{
-            plItem = pl.plItem;
-            AudioInputStream ais = AudioSystem.getAudioInputStream(plItem.file);
-            clip = AudioSystem.getClip();
-            clip.open(ais);
-            clip.setFramePosition(framePosition);
-            clip.start();
+            plItem = pl.plmass.get(number);
+            System.out.println("Now Playing: " + plItem.Name);
+            //AudioInputStream ais = AudioSystem.getAudioInputStream(plItem.file);
+            //clip = AudioSystem.getClip();
+            //clip.open(ais);
+            //clip.setFramePosition(framePosition);
+            //clip.start();
+            //do
+            //{
+
+            //}while(framePosition !=  clip.getFrameLength());
+
+            //Forward();
         }
         catch (Exception ex)
         {
             System.out.println(ex.getMessage());
         }
 
-    }*/
+    }
 
     public void Stop()
     {
         try {
-            clip.stop();
-            framePosition = clip.getFramePosition();
-            clip.close();
+            //clip.stop();
+            //framePosition = clip.getFramePosition();
+            //clip.close();
+            System.out.println("Player Stopped");
         }
         catch (Exception ex)
         {
@@ -47,6 +56,23 @@ public class Engine {
     public void Back()
     {
         try{
+            //clip.stop();
+            //framePosition = 0;
+            //clip.close();
+            number--;
+            plItem = pl.plmass.get(number);
+            System.out.println("Now Playing: " + plItem.Name);
+            //AudioInputStream ais = AudioSystem.getAudioInputStream(plItem.file);
+            //clip = AudioSystem.getClip();
+            //clip.open(ais);
+            //clip.setFramePosition(framePosition);
+            //clip.start();
+            //do
+            //{
+
+            //}while(framePosition !=  clip.getFrameLength());
+
+            //Forward();
 
         }
         catch (Exception ex)
@@ -58,6 +84,23 @@ public class Engine {
     public void Forward()
     {
         try{
+            //clip.stop();
+            //framePosition = 0;
+            //clip.close();
+            number++;
+            plItem = pl.plmass.get(number);
+            System.out.println("Now Playing: " + plItem.Name);
+            //AudioInputStream ais = AudioSystem.getAudioInputStream(plItem.file);
+            //clip = AudioSystem.getClip();
+            //clip.open(ais);
+            //clip.setFramePosition(framePosition);
+            //clip.start();
+            //do
+            //{
+
+            //}while(framePosition !=  clip.getFrameLength());
+
+            //Forward();
 
         }
         catch (Exception ex)
@@ -66,12 +109,29 @@ public class Engine {
         }
     }
 
+    public void Repeat()
+    {
+            //do
+            //{
+
+            //}while(framePosition !=  clip.getFrameLength());
+            //clip.stop();
+            //framePosition = 0;
+            //clip.close();
+            plItem = pl.plmass.get(number);
+            System.out.println("Now Playing: " + plItem.Name);
+            //AudioInputStream ais = AudioSystem.getAudioInputStream(plItem.file);
+            //clip = AudioSystem.getClip();
+            //clip.open(ais);
+            //clip.setFramePosition(framePosition);
+            //clip.start();
+    }
     public void Add()
     {
         try{
-            //pl.Add(Song);
-            System.out.println("Enter Song Name");
             Scanner in = new Scanner(System.in);
+
+            System.out.println("Enter Song Name");
             Song = in.nextLine();
             pl.Add(Song);
             System.out.println("Adding Successful");
@@ -86,7 +146,19 @@ public class Engine {
     public void Remove()
     {
         try{
-            pl.Remove(Song);
+            Scanner in = new Scanner(System.in);
+
+            if(count == 0)
+            {
+             System.out.println("PlayList is Empty");
+            }
+            else {
+                System.out.println("Enter Song Name, which you want remove");
+                Song = in.nextLine();
+                pl.Remove(Song);
+                System.out.println("Removing Successful");
+                count--;
+            }
         }
         catch (Exception ex)
         {
@@ -95,13 +167,9 @@ public class Engine {
     }
 
     public void GetPlayList() {
-        PlayListItem currentPlItem;
         for (int i = 0; i < count; i++)
         {
-            //currentPlItem = new PlayListItem(pl.plmass.get(i).Name);
-            //currentPlItem.Name = pl.plmass.get(i).Name;
-            //System.out.println(currentPlItem.Name);
-            System.out.println(pl.plmass.get(i).Name);
+            System.out.println((i+1) + ". " +pl.plmass.get(i).Name);
         }
     }
 }

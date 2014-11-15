@@ -7,7 +7,6 @@ import java.util.*;
 
 public class PlayList
 {
-    String Name;
     PlayListItem plItem;
     ArrayList<PlayListItem> plmass;
 
@@ -27,15 +26,14 @@ public class PlayList
     public PlayList()
     {
         plmass = new ArrayList<PlayListItem>();
-        //plItem = new PlayListItem(Name);
-        //plmass.add(plItem);
     }
 }
 
 class PlayListItem
 {
     public String Name;
-    //public File file;
+    public String Directory;
+    public File file;
 
     public PlayListItem()
     {
@@ -44,7 +42,8 @@ class PlayListItem
 
     public PlayListItem(String Name)
     {
-        //this.file = new File(Name);
+        this.file = new File(Name);
         this.Name = Name;
+        //this.Directory = file.getPath();
     }
 }
